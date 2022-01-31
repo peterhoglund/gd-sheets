@@ -2,7 +2,7 @@
 A spreadsheet directly in the Godot editor for quick and easy data management and storage.
 With Godot Sheets, you don't have to use third-party apps like Excel or Google Sheets when making spreadsheet-like data structures. Now you can do it directly in the editor.
 
-**_This addon is still very work in progress and should be considered a proof of concept at this stage. Add it and test it out, but don't use it in real projects yet._**
+**_This addon is work in progress. Add it and test it out, but don't use it in real projects yet._**
 
 After enabling the addon a "Sheets" section will be available at the top of the editor.
 
