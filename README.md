@@ -1,4 +1,4 @@
-# gd-sheets
+![Header](https://imgur.com/HtBLX4O.png)
 A spreadsheet directly in the Godot editor for quick and easy data management and storage.
 With Godot Sheets, you don't have to use third-party apps like Excel or Google Sheets when making spreadsheet-like data structures. Now you can do it directly in the editor.
 
@@ -6,19 +6,19 @@ This addon is still very work in progress and should be considered a proof of co
 
 After enabling the addon a "Sheets" section will be available at the top of the editor.
 
-![alt text](https://imgur.com/8s33ANy.png)
+![New Sheets section tab](https://imgur.com/8s33ANy.png)
 
 From there you can add data sheets (for example, "Weapons", "EnemyData", "Items", etc.) and start adding data to them.
 
 Godot Sheets is made for data management so each data point has a unique ID (left column) and a unique Header (top row). Use these unique identifiers to get the data when you need it in code.
 
-![alt text](https://imgur.com/tH4cA5V.png)
+![Example use](https://imgur.com/tH4cA5V.png)
 
 How to use
 ----------
 To get the data from within a script you can either call for it directly or iterate over the IDs.
 
-![alt text](https://imgur.com/GewpxyE.png)
+![Code example](https://imgur.com/GewpxyE.png)
 
 First load the sheet with GDSheets.sheet("Sheet Name"). Then you can access the data by entering [ID][Header]
 
