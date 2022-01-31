@@ -29,7 +29,7 @@ Get all IDs by iterating `.values()` of the data (like a `Dictionary`).
 
 Future releases
 ---------------
-This is a very early version of this addon, and should not be used in real projects yet. There are still lots of bugs and I had to down-scope a great deal to make it for the Godot Addon Jam. Moving on I will work on:
+This is a very early version of this addon. Moving on I will work on:
 
 * Basic UX features (insert and move rows and columns, move between cells, sheets management, zooming, etc., etc.)
 * Accept different data types (integers, floats, strings, etc). Perhaps even arrays and objects.
