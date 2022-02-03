@@ -578,7 +578,7 @@ func _on_Columns_value_changed(value: float) -> void:
 
 
 func _get_resolution_size(size):
-	if get_viewport_rect().size.x > 1080:
+	if get_viewport_rect().size.x > 1920:
 		return size * 2
 	else	:
 		return size

@@ -77,7 +77,7 @@ func set_dropwdown_icon(value):
 
 
 func _get_resolution_size(size, hd_size = null):
-	if get_viewport_rect().size.x > 1080:
+	if get_viewport_rect().size.x > 1920:
 		if not hd_size:
 			return size * 2
 		else:
