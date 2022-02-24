@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/gd-sheets/scripts/grid_area.gd" type="Script" id=1]
+
+[node name="GridArea" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1024.0
+margin_bottom = -600.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Data" type="HBoxContainer" parent="."]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IDs" type="VBoxContainer" parent="."]
+size_flags_horizontal = 3
+custom_constants/separation = 0
+
+[node name="Headers" type="HBoxContainer" parent="."]
+custom_constants/separation = 0
+
+[node name="Origo" type="Control" parent="."]
+
+[node name="ColumnResizeMarker" type="ColorRect" parent="."]
+margin_right = 2.0
+rect_min_size = Vector2( 2, 0 )
+size_flags_horizontal = 0
+size_flags_vertical = 3
+color = Color( 0.407843, 0.611765, 0.909804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RowResizeMarker" type="ColorRect" parent="."]
+margin_bottom = 2.0
+rect_min_size = Vector2( 0, 2 )
+size_flags_horizontal = 0
+size_flags_vertical = 3
+color = Color( 0.407843, 0.611765, 0.909804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

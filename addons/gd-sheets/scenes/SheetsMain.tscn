@@ -1,0 +1,445 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/gd-sheets/scripts/sheets_main.gd" type="Script" id=1]
+[ext_resource path="res://addons/gd-sheets/scripts/warning.gd" type="Script" id=2]
+[ext_resource path="res://addons/gd-sheets/scripts/rename_popup.gd" type="Script" id=3]
+[ext_resource path="res://addons/gd-sheets/resources/no_sheet_cat.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+} ]
+
+[node name="SheetsMain" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Window" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Window"]
+margin_right = 1024.0
+margin_bottom = 34.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1014.0
+margin_bottom = 34.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Actions" type="HBoxContainer" parent="Window/MarginContainer/HBoxContainer"]
+margin_right = 332.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="NewSheetButton" type="Button" parent="Window/MarginContainer/HBoxContainer/Actions"]
+margin_right = 12.0
+margin_bottom = 24.0
+hint_tooltip = "New Sheet"
+flat = true
+
+[node name="RenameSheetButton" type="Button" parent="Window/MarginContainer/HBoxContainer/Actions"]
+margin_left = 16.0
+margin_right = 28.0
+margin_bottom = 24.0
+hint_tooltip = "Rename Sheet"
+flat = true
+
+[node name="DeleteSheetButton" type="Button" parent="Window/MarginContainer/HBoxContainer/Actions"]
+margin_left = 32.0
+margin_right = 44.0
+margin_bottom = 24.0
+hint_tooltip = "Delete Sheet"
+flat = true
+
+[node name="Zoom" type="HBoxContainer" parent="Window/MarginContainer/HBoxContainer"]
+visible = false
+margin_left = 252.0
+margin_right = 500.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="ZoomMinus" type="Button" parent="Window/MarginContainer/HBoxContainer/Zoom"]
+margin_left = 68.0
+margin_right = 92.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+text = "-"
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/MarginContainer/HBoxContainer/Zoom"]
+margin_left = 96.0
+margin_right = 152.0
+margin_bottom = 24.0
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/MarginContainer/HBoxContainer/Zoom/MarginContainer"]
+margin_left = 10.0
+margin_right = 46.0
+margin_bottom = 24.0
+custom_constants/separation = 0
+
+[node name="ZoomValue" type="Label" parent="Window/MarginContainer/HBoxContainer/Zoom/MarginContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 24.0
+margin_bottom = 19.0
+text = "100"
+align = 1
+
+[node name="ZoomValue2" type="Label" parent="Window/MarginContainer/HBoxContainer/Zoom/MarginContainer/HBoxContainer"]
+margin_left = 24.0
+margin_top = 5.0
+margin_right = 36.0
+margin_bottom = 19.0
+text = "%"
+align = 1
+
+[node name="ZoomPlus" type="Button" parent="Window/MarginContainer/HBoxContainer/Zoom"]
+margin_left = 156.0
+margin_right = 180.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+text = "+"
+
+[node name="NameLabel" type="HBoxContainer" parent="Window/MarginContainer/HBoxContainer"]
+margin_left = 336.0
+margin_right = 668.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="Window/MarginContainer/HBoxContainer/NameLabel"]
+margin_left = 99.0
+margin_top = 5.0
+margin_right = 233.0
+margin_bottom = 19.0
+text = "Godot Sheets (Alpha)"
+align = 1
+valign = 1
+
+[node name="GridActions" type="HBoxContainer" parent="Window/MarginContainer/HBoxContainer"]
+margin_left = 672.0
+margin_right = 1004.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="AddCellLabel" type="Label" parent="Window/MarginContainer/HBoxContainer/GridActions"]
+visible = false
+margin_left = 156.0
+margin_top = 5.0
+margin_right = 212.0
+margin_bottom = 19.0
+text = "Add cell:"
+align = 1
+
+[node name="AddColumnLeftButton" type="Button" parent="Window/MarginContainer/HBoxContainer/GridActions"]
+margin_left = 216.0
+margin_right = 240.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+hint_tooltip = "Add column left of selected cell."
+text = "+"
+flat = true
+
+[node name="AddColumnRightButton" type="Button" parent="Window/MarginContainer/HBoxContainer/GridActions"]
+margin_left = 244.0
+margin_right = 268.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+hint_tooltip = "Add column right of selected cell."
+text = "+"
+flat = true
+
+[node name="VSeparator" type="VSeparator" parent="Window/MarginContainer/HBoxContainer/GridActions"]
+margin_left = 272.0
+margin_right = 276.0
+margin_bottom = 24.0
+
+[node name="Distance" type="Control" parent="Window/MarginContainer/HBoxContainer/GridActions"]
+visible = false
+margin_left = 158.0
+margin_right = 182.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 0 )
+
+[node name="AddRowsLabel" type="Label" parent="Window/MarginContainer/HBoxContainer/GridActions"]
+visible = false
+margin_left = 163.0
+margin_top = 5.0
+margin_right = 196.0
+margin_bottom = 19.0
+text = "Rows"
+align = 1
+
+[node name="AddRowAboveButton" type="Button" parent="Window/MarginContainer/HBoxContainer/GridActions"]
+margin_left = 280.0
+margin_right = 304.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+hint_tooltip = "Add row above selected cell."
+text = "+"
+flat = true
+
+[node name="AddRowBelowButton" type="Button" parent="Window/MarginContainer/HBoxContainer/GridActions"]
+margin_left = 308.0
+margin_right = 332.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+hint_tooltip = "Add row below selected cell."
+text = "+"
+flat = true
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Window"]
+margin_top = 38.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileArea" type="MarginContainer" parent="Window/HSplitContainer"]
+margin_right = 150.0
+margin_bottom = 562.0
+rect_min_size = Vector2( 150, 0 )
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SheetsDocsList" type="ItemList" parent="Window/HSplitContainer/FileArea"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 150.0
+margin_bottom = 552.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 8
+items = [ "New Sheet", null, false ]
+
+[node name="WorkArea" type="MarginContainer" parent="Window/HSplitContainer"]
+margin_left = 162.0
+margin_right = 1024.0
+margin_bottom = 562.0
+mouse_filter = 1
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_bottom = 10
+
+[node name="WorkAreaContainer" type="VBoxContainer" parent="Window/HSplitContainer/WorkArea"]
+margin_top = 10.0
+margin_right = 852.0
+margin_bottom = 552.0
+
+[node name="SheetArea" type="ScrollContainer" parent="Window/HSplitContainer/WorkArea/WorkAreaContainer"]
+margin_right = 852.0
+margin_bottom = 514.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+
+[node name="CellContent" type="LineEdit" parent="Window/HSplitContainer/WorkArea/WorkAreaContainer"]
+margin_top = 518.0
+margin_right = 852.0
+margin_bottom = 542.0
+
+[node name="NoSheetContainer" type="CenterContainer" parent="Window/HSplitContainer/WorkArea"]
+margin_top = 10.0
+margin_right = 852.0
+margin_bottom = 552.0
+mouse_filter = 2
+
+[node name="NoSheetContainer" type="VBoxContainer" parent="Window/HSplitContainer/WorkArea/NoSheetContainer"]
+margin_left = 226.0
+margin_top = 115.0
+margin_right = 626.0
+margin_bottom = 427.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Window/HSplitContainer/WorkArea/NoSheetContainer/NoSheetContainer"]
+modulate = Color( 1, 1, 1, 0.792157 )
+margin_right = 400.0
+margin_bottom = 270.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 4 )
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Window/HSplitContainer/WorkArea/NoSheetContainer/NoSheetContainer"]
+margin_top = 274.0
+margin_right = 400.0
+margin_bottom = 288.0
+size_flags_vertical = 1
+text = "You don't have any sheets!"
+align = 1
+valign = 1
+
+[node name="ButtonCenterContainer" type="CenterContainer" parent="Window/HSplitContainer/WorkArea/NoSheetContainer/NoSheetContainer"]
+margin_top = 292.0
+margin_right = 400.0
+margin_bottom = 312.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewSheetButton" type="Button" parent="Window/HSplitContainer/WorkArea/NoSheetContainer/NoSheetContainer/ButtonCenterContainer"]
+margin_left = 135.0
+margin_right = 264.0
+margin_bottom = 20.0
+mouse_filter = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = " Create New Sheet"
+
+[node name="RenamePopup" type="ConfirmationDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -175.0
+margin_top = -61.25
+margin_right = 175.0
+margin_bottom = 61.25
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 350, 122.5 )
+window_title = "Rename sheet"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="RenamePopup"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 8.0
+margin_top = -53.25
+margin_right = -8.0
+margin_bottom = 25.25
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileName" type="LineEdit" parent="RenamePopup/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 314.0
+margin_bottom = 58.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeleteSheetPopup" type="AcceptDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -65.5
+margin_top = -29.0
+margin_right = 65.5
+margin_bottom = 29.0
+window_title = "Delete Sheet"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
+frames = SubResource( 1 )
+animation = "New Anim"
+
+[node name="Warning" type="MarginContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -95.5
+margin_top = -166.0
+margin_right = 95.5
+margin_bottom = -136.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Warning"]
+margin_right = 191.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.501961 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Warning"]
+margin_right = 191.0
+margin_bottom = 30.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 8
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Warning/MarginContainer"]
+margin_left = 20.0
+margin_top = 8.0
+margin_right = 171.0
+margin_bottom = 22.0
+alignment = 1
+
+[node name="NotUniqueWarningLabel" type="Label" parent="Warning/MarginContainer/HBoxContainer"]
+margin_left = 75.0
+margin_right = 75.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 1, 0.537255, 0, 1 )
+align = 1
+valign = 1
+
+[connection signal="pressed" from="Window/MarginContainer/HBoxContainer/Actions/NewSheetButton" to="." method="_on_NewSheetButton_pressed"]
+[connection signal="pressed" from="Window/MarginContainer/HBoxContainer/Actions/RenameSheetButton" to="." method="_on_RenameSheetButton_pressed"]
+[connection signal="pressed" from="Window/MarginContainer/HBoxContainer/Actions/DeleteSheetButton" to="." method="_on_DeleteSheetButton_pressed"]
+[connection signal="pressed" from="Window/MarginContainer/HBoxContainer/Zoom/ZoomMinus" to="." method="_on_ZoomMinus_pressed"]
+[connection signal="pressed" from="Window/MarginContainer/HBoxContainer/Zoom/ZoomPlus" to="." method="_on_ZoomPlus_pressed"]
+[connection signal="pressed" from="Window/MarginContainer/HBoxContainer/GridActions/AddColumnLeftButton" to="." method="_on_AddColumnLeftButton_pressed"]
+[connection signal="pressed" from="Window/MarginContainer/HBoxContainer/GridActions/AddColumnRightButton" to="." method="_on_AddColumnRightButton_pressed"]
+[connection signal="pressed" from="Window/MarginContainer/HBoxContainer/GridActions/AddRowAboveButton" to="." method="_on_AddRowAboveButton_pressed"]
+[connection signal="pressed" from="Window/MarginContainer/HBoxContainer/GridActions/AddRowBelowButton" to="." method="_on_AddRowBelowButton_pressed"]
+[connection signal="pressed" from="Window/HSplitContainer/WorkArea/NoSheetContainer/NoSheetContainer/ButtonCenterContainer/NewSheetButton" to="." method="_on_NewSheetButton_pressed"]
+[connection signal="about_to_show" from="RenamePopup" to="RenamePopup" method="_on_RenamePopup_about_to_show"]
+[connection signal="confirmed" from="RenamePopup" to="." method="_on_RenamePopup_confirmed"]
+[connection signal="confirmed" from="DeleteSheetPopup" to="." method="_on_DeleteSheetPopup_confirmed"]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/gd-sheets/data_document.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+data = [  ]
+hash_map = {
+}
+header_sizes = [ null, null, null, null, null, null, null, null, null, null, null ]
+id_sizes = [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ]
+columns = 11
+rows = 21
+is_dirty = false

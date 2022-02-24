@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/gd-sheets/scripts/cell_id.gd" type="Script" id=1]
+[ext_resource path="res://addons/gd-sheets/resources/cell_text_field_style_focus.tres" type="StyleBox" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.407843, 0.611765, 0.909804, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="IDCell" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+menu_enabled = true
+resize_handle_node = NodePath("ResizeHandleContainer/ResizeHandle")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/focus = ExtResource( 2 )
+virtual_keyboard_enabled = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Border" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResizeHandleContainer" type="VBoxContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+alignment = 2
+
+[node name="ResizeHandle" type="ColorRect" parent="ResizeHandleContainer"]
+margin_top = 594.0
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 0, 6 )
+mouse_default_cursor_shape = 9
+size_flags_horizontal = 3
+color = Color( 0.407843, 0.611765, 0.909804, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="EditMenu" type="PopupMenu" parent="."]
+margin_right = 139.0
+margin_bottom = 88.0
+focus_mode = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
+items = [ "Insert 1 row above", null, 0, false, false, 0, 0, null, "", false, "Insert 1 row below", null, 0, false, false, 1, 0, null, "", false, "", null, 0, false, true, -1, 0, null, "", true, "Delete row", null, 0, false, false, 2, 0, null, "", false ]
