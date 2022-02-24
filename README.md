@@ -3,8 +3,11 @@ A spreadsheet directly in the Godot editor for quick and easy data management an
 With Godot Sheets, you don't have to use third-party apps like Excel or Google Sheets when making spreadsheet-like data structures. Now you can do it directly in the editor.
 
 **_This addon is work in progress. Add it and test it out, but don't use it in real projects yet._**
+Version 0.2 Alpha has focused on implementing basic interactions with the cell grid: inserting, moving, resizing and removing rows/columns, as well as better movement between and editing of cells. The interactions try to mimic Google Sheet and should be familiar to many users.
 
-After enabling the addon a "Sheets" section will be available at the top of the editor.
+Install
+-------
+Download and add to your Godot project's addon-folder. After enabling the addon (from Project Setting's Plugin tab) a "Sheets" section will be available at the top of the editor.
 
 ![New Sheets section tab](https://imgur.com/8s33ANy.png)
 
@@ -31,19 +34,16 @@ Future releases
 ---------------
 This is a very early version of this addon. Moving on I will work on:
 
-* Basic UX features (insert and move rows and columns, move between cells, sheets management, zooming, etc., etc.)
-* Accept different data types (integers, floats, strings, etc). Perhaps even arrays and objects.
+* Use VisualServer for cells instead of nodes, to hopefully make larger sheets faster.
+* Multiline editing in cells.
+* Accepting different data types (integers, floats, strings, etc). Perhaps even arrays and objects.
 * Write data from script. Today only reading is possible.
 * Export and import CSV (maybe JSON)
-* Stability and bug fixes, refactoring code
 * more...
 
 
 Known issues in this version
 ----------------------------
 * Has only been tested with Godot 3.4.1 on Mac (with HiDPI screen)
-* Resizing cells is not saved, leaving and returning will reset the sizes.
-* All data is string format only (since it uses LineEdit)
-* Can't insert or delete rows or columns, only add and remove at the ends
-* Can't move rows and columns
-* Moving between cells can be a little awkward sometimes.
+* Large sheets are slow to process in the editor.
+* All data is one line only (since it uses LineEdit)
